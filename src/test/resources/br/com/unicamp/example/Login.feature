@@ -6,7 +6,7 @@ Feature: Login into Sade
   Scenario: Login flow on Sade as a not logged user
     Given user is not logged in
     When I open the Sade page
-    Then a browser should display the login page
+    Then a browser should display the login page containing "Bem vindo ao SADE."
 
   Scenario: Login flow on Sade as a logged developer
     Given user is logged in as an developer

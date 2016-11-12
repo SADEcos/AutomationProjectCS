@@ -20,8 +20,8 @@ public abstract class Contants {
     static final String NAME_INPUT_LOGIN_PASSWORD = "password";
 
     // URLs
-    static final String SADE_URL = "http://localhost/";
-    static final String DEVELOPER_HOME_URL = "http://localhost/";
+    static final String SADE_URL = "http://localhost:1414/";
+    static final String DEVELOPER_HOME_URL = "http://localhost:1414/";
     static final String ADMIN_HOME_URL = "http://localhost/";
 
     // Username and Password
