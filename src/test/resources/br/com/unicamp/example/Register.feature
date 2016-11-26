@@ -3,7 +3,7 @@ Feature: Cadastro e edicao de perfil de desenvolvedores
 
   Scenario: Sign up flow as a unregistered developer
     Given user is not logged in
-    And the login page is opened
+    And I open the Sade page
     When I click on sign up link
     Then The browser should display the sign up form
 
@@ -12,50 +12,14 @@ Feature: Cadastro e edicao de perfil de desenvolvedores
     Given user is not logged in
     And the sign up form is opened
     When I fill the sign up form with correct information
-    And submit the sign up form
-    Then The browser should display the main page of developers
+    When submit the sign up form
+    Then The browser should display the skills page
 
-
-  Scenario: Sign up form filling as a unregistered developer with existent CPF
+  Scenario: Filling a unregistered developer skills page
     Given user is not logged in
     And the sign up form is opened
-    When I fill the sign up form with correct information
-    And I fill the sign up form with existent CPF
-    And submit the sign up form
-    Then The browser should display an error message
-
-
-  Scenario: Sign up form filling as a unregistered developer with incorrect information
-    Given user is not logged in
-    And the sign up form is opened
-    When I fill the sign up form with incorrect information
-    And submit the sign up form
-    Then The browser should display an error message
-
-
-  Scenario: Edit information flow as an logged in developer
-    Given developer is logged in
-    And the main page of developers is opened
-    When I click the edit button
-    Then The browser should display the sign up form
-    And The sign up form should contain developer data
-
-
-  Scenario: Editing information with correct information as an logged in developer
-    Given developer is logged in
-    And the edit page of developers is opened
-    When I fill the sign up form with correct information
-    And submit the sign up form
-    Then The browser should display the main page of developers
-
-
-  Scenario: Editing information with incorrect information as an logged in developer
-    Given developer is logged in
-    And the edit page of developers is opened
-    When I fill the sign up form with incorrect information
-    And submit the sign up form
-    Then The browser should display an error message
-
+    And submit the skills form
+    Then The browser should display the success page with message "Seu registro foi feito com sucesso"
 
 
 
