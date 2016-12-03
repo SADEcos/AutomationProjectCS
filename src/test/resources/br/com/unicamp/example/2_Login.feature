@@ -8,11 +8,6 @@ Feature: Login into Sade
     When I open the Sade page
     Then a browser should display the login page containing "Bem vindo ao SADE."
 
-  Scenario: Unlogged admin flow
-    Given user is not logged in
-	When I fill administrator credentials and submit
-	Then a browser should display the main page of administrators
-
   Scenario: Login flow on Sade as a logged developer
     Given user is not logged in
     When I fill developer credentials and submit
@@ -23,4 +18,7 @@ Feature: Login into Sade
 	When I fill invalid credentials and submit
 	Then a browser should display an error message "Login ou Credenciais Inválidas"
 
-	
+  Scenario: Unlogged admin flow
+    Given user is not logged in
+    When I fill administrator credentials and submit
+    Then a browser should display the main page of administrators

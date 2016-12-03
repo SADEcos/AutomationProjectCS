@@ -26,7 +26,7 @@ abstract class Contants {
     static final String ADMIN_HOME_URL = BASE_URL + "#/busca";
     static final String ERROR_URL = BASE_URL + "#/error";
     static final String SUCCESS_URL = BASE_URL + "#/sucesso";
-    static final String SEARCH_URL = BASE_URL + "#/search";
+    static final String SEARCH_URL = BASE_URL + "#/busca";
 
     // Username and Password
     static final String DEVELOPER_LOGIN = "dev";
@@ -36,7 +36,7 @@ abstract class Contants {
     static final String INVALID_LOGIN = "INVALID";
     static final String INVALID_PASSWORD = "INVALID";
 
-    static final String DEVELOPER_NAME = "yuri";
+    static final String DEVELOPER_NAME = "erik";
     static final String DEVELOPER_NAME_INVALID = "billy";
 
 }

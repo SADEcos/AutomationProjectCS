@@ -105,4 +105,5 @@ public class RegisterScenario extends BaseScenario {
 		assertThat(driver.getCurrentUrl()).isEqualToIgnoringCase(Contants.SUCCESS_URL);
 		assertThat(driver.findElement(By.className("alert-success")).getText().contains(message));
 	}
+
 }
