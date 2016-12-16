@@ -49,20 +49,14 @@ public class FindScenario extends BaseScenario {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         List<WebElement> devs = driver.findElements(By.className("linhaDev"));
         for (WebElement dev : devs) {
-            assertThat(dev.findElements(By.tagName("td")).get(0).getText().toLowerCase().contains(DEVELOPER_NAME.toLowerCase()));
+            assertThat(dev.findElements(By.tagName("td")).get(0).getText().toLowerCase()).contains(DEVELOPER_NAME.toLowerCase());
         }
-    }
-
-    @Then("^The browser should display all developers with all languages selected$")
-    public void theBrowserShouldDisplayAllDevelopersWithAllLanguagesSelected() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 
     @Then("^a browser should display (\\d+) developers$")
     public void aBrowserShouldDisplayDevelopers(int numDevs) throws Throwable {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        assertThat(driver.findElements(By.className("linhaDev")).size() == numDevs);
+        assertThat(driver.findElements(By.className("linhaDev")).size()).isEqualTo(numDevs);
     }
 
     @When("^I click the language checkbox \"([^\"]*)\"$")
@@ -73,7 +67,7 @@ public class FindScenario extends BaseScenario {
 
     @Then("^The browser should display the language column \"([^\"]*)\"$")
     public void theBrowserShouldDisplayTheLanguageColumn(String arg0) throws Throwable {
-        assertThat(isColumnShown(arg0));
+        assertThat(isColumnShown(arg0)).isTrue();
     }
 
     private Boolean isColumnShown(String column){
@@ -92,6 +86,24 @@ public class FindScenario extends BaseScenario {
 
     @Then("^The browser should not display the language column \"([^\"]*)\"$")
     public void theBrowserShouldNotDisplayTheLanguageColumn(String arg0) throws Throwable {
-        assertThat(!isColumnShown(arg0));
+        assertThat(isColumnShown(arg0)).isFalse();
+    }
+
+    @When("^I click the first developer$")
+    public void iClickTheFirstDeveloper() throws Throwable {
+        driver.findElements(By.className("linhaDev")).get(0).findElement(By.tagName("a")).click();
+    }
+
+    @Then("^a browser should display the page of the developer")
+    public void aBrowserShouldDisplayTheMainPageOfDevelopers() throws Throwable {
+        waitForPageLoad();
+        assertThat(driver.getCurrentUrl()).contains(Contants.DEVELOPER_HOME_URL);
+    }
+
+    @Then("^a browser should display a modal with the developer information$")
+    public void aBrowserShouldDisplayAModalWithTheDeveloperInformation() throws Throwable {
+        waitForPageLoad();
+        Thread.sleep(2000);
+        assertThat(driver.findElement(By.id("modal-dev-info")).isDisplayed()).isEqualTo(true);
     }
 }

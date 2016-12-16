@@ -95,7 +95,7 @@ public class RegisterScenario extends BaseScenario {
 	@Then("^The browser should display the skills page$")
 	public void theBrowserShouldDisplayTheMainPageOfDevelopers() throws Throwable {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.className("rzslider")));
-		assertThat(driver.findElement(By.className("rzslider")) != null);
+		assertThat(driver.findElement(By.className("rzslider"))).isNotNull();
 
 	}
 

@@ -27,3 +27,8 @@ Feature: Busca de desenvolvedor
     Given the search page of developers is opened
     When I click the language checkbox "python"
     Then The browser should not display the language column "python"
+
+  Scenario: Search developers by language skills
+    Given the search page of developers is opened
+    When I click the first developer
+    Then a browser should display a modal with the developer information
